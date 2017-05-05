@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2017-01-31T09:35:01Z</date>
+    <date>2017-05-05T12:58:35Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template_Papercut</template>
-            <name>Template_Papercut</name>
+            <template>ZBX-Papercut</template>
+            <name>ZBX-Papercut</name>
             <description/>
             <groups>
                 <group>
@@ -686,7 +686,7 @@ it will verify once every Hour if the License is still Valid.</description>
                                 </application>
                             </applications>
                             <valuemap>
-                                <name>Service state</name>
+                                <name>Printer service state</name>
                             </valuemap>
                             <logtimefmt/>
                             <application_prototypes/>
@@ -694,7 +694,7 @@ it will verify once every Hour if the License is still Valid.</description>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template_Papercut:printer.status[&quot;{#PRNAME}&quot;].last()}=0</expression>
+                            <expression>{ZBX-Papercut:printer.status[&quot;{#PRNAME}&quot;].last()}=0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>Printer {#PRNAME} NOT Ok!</name>
@@ -754,11 +754,11 @@ it will verify once every Hour if the License is still Valid.</description>
             <macros>
                 <macro>
                     <macro>{$AUTHORIZATION}</macro>
-                    <value>Authorization:nwBe295Hl972zIf35nieMacKBDvkm7Xd</value>
+                    <value>Authorization=XXXXXxxxxxxXXXXXXxxxxxx</value>
                 </macro>
                 <macro>
                     <macro>{$PAPERCUTIP}</macro>
-                    <value>10.5.1.96:9191</value>
+                    <value>10.X.X.X:9191</value>
                 </macro>
             </macros>
             <templates/>
@@ -767,9 +767,9 @@ it will verify once every Hour if the License is still Valid.</description>
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template_Papercut:papercut[diskSpaceFreeMB].min(600)}&lt;1000</expression>
+            <expression>{ZBX-Papercut:papercut[diskSpaceFreeMB].min(600)}&lt;1000</expression>
             <recovery_mode>1</recovery_mode>
-            <recovery_expression>{Template_Papercut:papercut[diskSpaceFreeMB].max(600)}&gt;1000</recovery_expression>
+            <recovery_expression>{ZBX-Papercut:papercut[diskSpaceFreeMB].max(600)}&gt;1000</recovery_expression>
             <name>Free Space on {HOST.HOST} &lt;1GB</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
@@ -785,7 +785,7 @@ Trigger will recover if during 10min the highest value is more then 1GB</descrip
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template_Papercut:activedb.percentage.max(300)}&gt;90</expression>
+            <expression>{ZBX-Papercut:activedb.percentage.max(300)}&gt;90</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Papercut Active database Connections &gt; 90%</name>
@@ -801,7 +801,7 @@ Trigger will recover if during 10min the highest value is more then 1GB</descrip
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template_Papercut:papercut[databaseStatus].str(OK)}=0</expression>
+            <expression>{ZBX-Papercut:papercut[databaseStatus].str(OK)}=0</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Papercut Database Status NOT Ok</name>
@@ -817,7 +817,7 @@ Trigger will recover if during 10min the highest value is more then 1GB</descrip
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template_Papercut:papercut[validlicense].str(True)}=0</expression>
+            <expression>{ZBX-Papercut:papercut[validlicense].str(True)}=0</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Papercut License Not Valid</name>
@@ -835,7 +835,7 @@ Trigger will recover if during 10min the highest value is more then 1GB</descrip
     </triggers>
     <value_maps>
         <value_map>
-            <name>Service state</name>
+            <name>Printer service state</name>
             <mappings>
                 <mapping>
                     <value>0</value>
