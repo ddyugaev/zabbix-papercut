@@ -12,6 +12,7 @@
 2.  Copy paste content from zabbix_agentd.d/userparameter_papercut.conf to zabbix agent config file;
 
 3.	Copy whole folder "scripts" to Zabbix agent folder on Papercut server
+
 ```C:\Program Files\Zabbix Agent\
 ```
 
