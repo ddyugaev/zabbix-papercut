@@ -22,14 +22,23 @@ response = urllib.urlopen(url)
 json_input = json.loads(response.read())
 
 def main():
-    try:
-        for i in json_input['printers']:
-            r["data"].append( {"{#PRNAME}": i['name']} )
+  if len(sys.argv)<2:
+    print "Run as:\n{0} [printername]".format(sys.argv[0])
 
-        print json.dumps(r, indent=2, sort_keys=True, encoding="utf-8")
+  else:
+    printername = sys.argv[1]
+
+    try:
+        var = [ i["status"] for i in json_input['printers'] if i["name"].split('\\',1)[1] == printername ]
+        if var == [u'OK']:
+          print 1
+
+        else:
+          print 0
 
     except (ValueError, KeyError, TypeError):
         print "JSON format error"
+        print json.dumps(r, indent=2, sort_keys=True, encoding="utf-8")
 
 if __name__ == "__main__":
     main()
