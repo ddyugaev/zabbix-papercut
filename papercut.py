@@ -4,7 +4,7 @@ import urllib
 import sys
 import json
 
-file=open('/etc/zabbix/papercut.conf','r')
+file=open('c:\Program Files\Zabbix Agent\scripts\papercut.conf','r')
 for line in file.readlines():
     (key, sep, value) = line.partition('=')
     if key == 'papercut_ip':
