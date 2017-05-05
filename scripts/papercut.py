@@ -55,7 +55,7 @@ def main():
     print validlicense
 
   elif sys.argv[1]=='licenseRemaining':
-    licenseRemaining = data['license']['licenseRemainingDays']
+    licenseRemaining = data['license']['upgradeAssuranceRemainingDays']
     print licenseRemaining
 
   elif sys.argv[1]=='databaseStatus':
