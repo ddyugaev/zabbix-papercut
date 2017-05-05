@@ -13,7 +13,8 @@
 
 3.	Copy whole folder "scripts" to Zabbix agent folder on Papercut server
 
-```C:\Program Files\Zabbix Agent\
+```
+C:\Program Files\Zabbix Agent\
 ```
 
 4.	Edit the papercut.conf file and add the correct Authorization token and papercut server ip.  
