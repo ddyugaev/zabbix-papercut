@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2017-05-05T12:58:35Z</date>
+    <date>2017-06-21T06:28:27Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -531,7 +531,7 @@
                     <snmp_oid/>
                     <key>papercut[validlicense]</key>
                     <delay>3600</delay>
-                    <history>90</history>
+                    <history>30</history>
                     <trends>0</trends>
                     <status>0</status>
                     <value_type>4</value_type>
@@ -574,8 +574,8 @@ it will verify once every Hour if the License is still Valid.</description>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>papercut[version]</key>
-                    <delay>60</delay>
-                    <history>90</history>
+                    <delay>86400</delay>
+                    <history>365</history>
                     <trends>0</trends>
                     <status>0</status>
                     <value_type>4</value_type>
@@ -827,6 +827,54 @@ Trigger will recover if during 10min the highest value is more then 1GB</descrip
             <status>0</status>
             <priority>4</priority>
             <description>Trigger will recover once the license is Valid</description>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-Papercut:papercut[licenseRemaining].last()}&lt;6</expression>
+            <recovery_mode>2</recovery_mode>
+            <recovery_expression/>
+            <name>Papercut License will expire in 5 days</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-Papercut:papercut[licenseRemaining].last()}&lt;31</expression>
+            <recovery_mode>2</recovery_mode>
+            <recovery_expression/>
+            <name>Papercut License will expire in 30 days</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-Papercut:papercut[licenseRemaining].last()}&lt;61</expression>
+            <recovery_mode>2</recovery_mode>
+            <recovery_expression/>
+            <name>Papercut License will expire in 60 days</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description/>
             <type>0</type>
             <manual_close>0</manual_close>
             <dependencies/>
